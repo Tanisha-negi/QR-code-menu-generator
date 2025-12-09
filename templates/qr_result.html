@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>QR Code Generated</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <style>
+    .qr-image {
+      /* Max-width ensures the image scales down on mobile */
+      max-width: 100%;
+      height: auto;
+      /* Corrected border typo and added a shadow for visual effect */
+      border: 1px solid #000000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a href="{% url 'generate_qr_code' %}" class="navbar-brand">Generate QR Code</a>
+    </div>
+  </nav> 
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 text-center">
+        
+        <h2 class="mb-4">{{ res_name }}</h2>
+        
+        <img src="{{ qr_url}}" alt="Generated QR Code" class="qr-image">
+        
+        <div class="mt-4">
+          <a href="{{ qr_url}}" download="{{ file_name }}" class="btn btn-primary btn-lg">Download QR Code</a>
+          <br>
+          <small class="text-muted mt-2 d-block">Thank you for using our QR Code Generator Tool</small>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
