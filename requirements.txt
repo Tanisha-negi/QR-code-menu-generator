@@ -1,3 +1,4 @@
 Django
 Qrcode
 Pillow
+gunicorn

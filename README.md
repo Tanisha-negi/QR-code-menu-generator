@@ -1,7 +1,16 @@
+---
+title: QR Code Generator
+emoji: 📸
+colorFrom: indigo
+colorTo: blue
+sdk: docker
+pinned: false
+---
+
 # 🐍 QR Code Menu Generator (Django)
 
 [![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen.svg)](YOUR_VERCEL_OR_NETLIFY_LINK)
-[![GitHub Repository](https://img.shields.io/badge/Code-GitHub-blue.svg)]https://github.com/Tanisha-negi/QR-code-menu-generator.git
+[![GitHub Repository](https://img.shields.io/badge/Code-GitHub-blue.svg)](https://github.com/Tanisha-negi/QR-code-menu-generator.git)
 
 ## 🌟 Overview
 
