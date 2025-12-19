@@ -1,19 +1,18 @@
-FROM python:3.10-slim
+FROM python:3.10
 
-# 1. Create a user to avoid permission issues
-RUN useradd -m -u 1000 user
-USER user
-ENV PATH="/home/user/.local/bin:$PATH"
+WORKDIR /code
 
-WORKDIR /app
+# 1. Install dependencies globally
+COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# 2. Install dependencies as the 'user'
-COPY --chown=user requirements.txt .
-RUN pip install --no-cache-dir --user -r requirements.txt
+# 2. Copy the rest of the code
+COPY . .
 
-# 3. Copy the rest of your code
-COPY --chown=user . .
-
-# 4. Use the full path to python3 to run flask
+# 3. Set environment variables
 ENV FLASK_APP=app.py
-CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0", "--port=7860"]
+ENV PYTHONUNBUFFERED=1
+
+# 4. Run directly using the python module syntax on the required HF port
+CMD ["python", "-m", "flask", "run", "--host=0.0.0.0", "--port=7860"]

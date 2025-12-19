@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-i@bqaw&ds2_65^6=mq%&i_-ldp0dwr9mr-&w(t%&ax__*ggm-o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', 'huggingface.co', 'tanishanegi-qr-generator.hf.space']
+
+X_FRAME_OPTIONS = 'ALLOW-FROM https://huggingface.co/'
 
 
 # Application definition
