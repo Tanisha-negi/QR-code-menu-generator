@@ -14,6 +14,5 @@ COPY . .
 ENV PORT=7860
 EXPOSE 7860
 
-# 4. Find the project name and run it
-# This command looks for the folder containing wsgi.py and starts it
-CMD ["sh", "-c", "python manage.py migrate && gunicorn --bind 0.0.0.0:7860 $(ls -d */ | xargs -I {} sh -c 'if [ -f {}wsgi.py ]; then echo {}; fi' | head -n 1 | tr -d '/') .wsgi:application"]
+# Replace the old CMD with this specific one
+CMD ["gunicorn", "--bind", "0.0.0.0:7860", "django_qr.wsgi:application"]
